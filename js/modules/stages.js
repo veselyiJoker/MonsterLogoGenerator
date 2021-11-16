@@ -2,6 +2,7 @@
 
 import { letNextStage, personalizationPopup} from "./common.js";
 import { initPersonalizationList } from "./personalizeStage.js";
+import { initSwagList } from "./shapes/swagStage.js";
 
 
 const LAST_STAGE_NUM = 3;
@@ -51,6 +52,9 @@ const nextStage = () => {
         switch (activeStageNum) {
             case 1: 
                 initPersonalizationList();
+            break;
+            case 2:
+                initSwagList();
             break;
             case LAST_STAGE_NUM :
                 nextBtn.style.display = 'none';

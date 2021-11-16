@@ -5,6 +5,7 @@ import { crossSVG } from './shapes/cross.js';
 import { rhombusSVG } from './shapes/rhombus.js';
 import { shieldSVG } from  './shapes/shield.js';
 import { wreathSVG } from './shapes/wreath.js';
+import { mustacheSVG } from './swag/mustache.js';
 
 export const resultLogo = document.querySelector('.result-logo');
 export const personalizationPopup = document.querySelector('.personalize-popup');
@@ -38,7 +39,9 @@ export const logosData = {
             },
         },
         swag: {
-            
+            mustache: {
+                shape: mustacheSVG,
+            },
         },
     },
     shield: {
@@ -65,7 +68,9 @@ export const logosData = {
             },
         },
         swag: {
-            
+            mustache: {
+                shape: mustacheSVG,
+            },
         },
     },
     rhombus: {
@@ -92,7 +97,9 @@ export const logosData = {
             },
         },
         swag: {
-            
+            mustache: {
+                shape: mustacheSVG,
+            },
         },
     },
     wreath: {
@@ -119,7 +126,9 @@ export const logosData = {
             },
         },
         swag: {
-            
+            mustache: {
+                shape: mustacheSVG,
+            },
         },
     },
     cross: {
@@ -161,7 +170,9 @@ export const logosData = {
             },
         },
         swag: {
-            
+            mustache: {
+                shape: mustacheSVG,
+            },
         },
     },
 };

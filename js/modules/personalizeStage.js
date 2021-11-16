@@ -45,22 +45,27 @@ const onPersonalizationPopupFieldInput = (e) => {
         case 'font size':
             resultLogo.querySelectorAll('.result-logo-text').forEach(elem => {
                 elem.style.fontSize = `${e.currentTarget.querySelector('input').value >= 8 && e.currentTarget.querySelector('input').value <= 512 ? e.currentTarget.querySelector('input').value : 8}px`;
-
                 if (elem.classList.contains('result-logo-text-top')) {
                     alignTextX(elem);
+                    const textTHeight = window.getComputedStyle(elem).lineHeight.substr(0, window.getComputedStyle(elem).lineHeight.length - 2);
+                    elem.setAttribute('y', `${122 + (textTHeight / 2) - (textTHeight * 0.197530864)}px`);
                 } else if (elem.classList.contains('result-logo-text-right')) {
                     alignTextY(elem);
+                    const textRWidth = elem.getComputedTextLength();
+                    elem.setAttribute('x', `${388 - textRWidth / 2}px`);
                 } else if (elem.classList.contains('result-logo-text-bottom')) {
                     alignTextX(elem);
+                    const textBHeight = window.getComputedStyle(elem).lineHeight.substr(0, window.getComputedStyle(elem).lineHeight.length - 2);
+                    elem.setAttribute('y', `${390 + (textBHeight / 2) - (textBHeight * 0.197530864)}`);
                 } else if (elem.classList.contains('result-logo-text-left')) {
                     alignTextY(elem);
+                    const textLWidth = elem.getComputedTextLength();
+                    elem.setAttribute('x', `${125 - textLWidth / 2}px`);
                 } else {
                     alignTextX(elem);
                     alignTextY(elem);
                 }
-
-            })
-
+            });
         break;
         case 'text':
             resultLogo.querySelector('.result-logo-text').textContent = e.currentTarget.querySelector('input').value;
@@ -73,10 +78,8 @@ const onPersonalizationPopupFieldInput = (e) => {
         break;
         case 'text right': 
             resultLogo.querySelector('.result-logo-text-right').textContent = e.currentTarget.querySelector('input').value;
-            alignTextY(resultLogo.querySelector('.result-logo-text-right'));
-
             const textRWidth = resultLogo.querySelector('.result-logo-text-right').getComputedTextLength();
-            resultLogo.querySelector('.result-logo-text-right').setAttribute('x', `${373 - textRWidth / 2 + 17}px`);
+            resultLogo.querySelector('.result-logo-text-right').setAttribute('x', `${388 - textRWidth / 2}px`);
         break;
         case 'text bottom': 
             resultLogo.querySelector('.result-logo-text-bottom').textContent = e.currentTarget.querySelector('input').value;
@@ -87,7 +90,7 @@ const onPersonalizationPopupFieldInput = (e) => {
             alignTextY(resultLogo.querySelector('.result-logo-text-left'));
 
             const textLWidth = resultLogo.querySelector('.result-logo-text-left').getComputedTextLength();
-            resultLogo.querySelector('.result-logo-text-left').setAttribute('x', `${105 - textLWidth / 2 + 17}px`);
+            resultLogo.querySelector('.result-logo-text-left').setAttribute('x', `${125 - textLWidth / 2}px`);
         break;
     } 
 
@@ -148,10 +151,10 @@ const changePersonalizationType = (personalizationType, activeLogosDataItem) => 
             personalizationPopup.classList.add('personalize-popup-active');
         break;
         case 'xLetters':
-            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-top', activeLogosDataItem.personalize[personalizationType].popupFields['textTop'].content, 239, 142);
-            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-right', activeLogosDataItem.personalize[personalizationType].popupFields['textRight'].content, 373, 280);
-            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-bottom', activeLogosDataItem.personalize[personalizationType].popupFields['textBottom'].content, 239, 407);
-            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-left', activeLogosDataItem.personalize[personalizationType].popupFields['textLeft'].content, 105, 280);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-top', activeLogosDataItem.personalize[personalizationType].popupFields['textTop'].content, 239, 145);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-right', activeLogosDataItem.personalize[personalizationType].popupFields['textRight'].content, 371, 280);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-bottom', activeLogosDataItem.personalize[personalizationType].popupFields['textBottom'].content, 239, 415);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-left', activeLogosDataItem.personalize[personalizationType].popupFields['textLeft'].content, 108, 280);
             personalizationPopup.classList.add('personalize-popup-active');
 
         break;
