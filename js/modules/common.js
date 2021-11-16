@@ -32,7 +32,7 @@ export const logosData = {
                     },
                     text: {
                         name: 'text',
-                        content: 'M.L.G.',
+                        content: 'W.R.M.',
                         contentType: 'text',
                     },
                 },
@@ -61,7 +61,7 @@ export const logosData = {
                     },
                     text: {
                         name: 'text',
-                        content: 'M.L.G.',
+                        content: 'W.R.M.',
                         contentType: 'text',
                     },
                 },
@@ -90,7 +90,7 @@ export const logosData = {
                     },
                     text: {
                         name: 'text',
-                        content: 'M.L.G.',
+                        content: 'W.R.M.',
                         contentType: 'text',
                     },
                 },
@@ -119,7 +119,7 @@ export const logosData = {
                     },
                     text: {
                         name: 'text',
-                        content: 'M.L.G.',
+                        content: 'W.R.M.',
                         contentType: 'text',
                     },
                 },

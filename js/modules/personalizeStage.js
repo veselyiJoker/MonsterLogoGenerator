@@ -147,7 +147,7 @@ const changePersonalizationType = (personalizationType, activeLogosDataItem) => 
 
     switch (personalizationType) {
         case 'singleLine':
-            resultLogo.innerHTML += generatePersonalizationText('result-logo-text', activeLogosDataItem.personalize[personalizationType].popupFields['text'].content, 165, 280);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text', activeLogosDataItem.personalize[personalizationType].popupFields['text'].content, 148, 280);
             personalizationPopup.classList.add('personalize-popup-active');
         break;
         case 'xLetters':
