@@ -7,7 +7,6 @@ const personalizationPopupFields = personalizationPopup.querySelector('.personal
 
 let targetPersonalizeBtn;
 let personalizationType;
-let activePopupField;
 
 const generatePersonalizationList = () => {
     const fragment = document.createDocumentFragment();
@@ -30,10 +29,68 @@ const generatePersonalizationList = () => {
 
 
 const onPersonalizationPopupFieldInput = (e) => {
-    activePopupField = e.currentTarget.dataset.popupField;
-    if (activePopupField === 'text') {
-        resultLogo.querySelector('.result-logo-text').textContent = e.currentTarget.querySelector('input').value;
+    const activePopupField = e.currentTarget.dataset.popupField;
+
+    const alignTextX = (elem) => {
+        const textWidth = elem.getComputedTextLength();
+        elem.setAttribute('x', `${256 - textWidth / 2}px`);
     }
+
+    const alignTextY = (elem) => {
+        const textHeight = window.getComputedStyle(elem).lineHeight.substr(0, window.getComputedStyle(elem).lineHeight.length - 2);
+        elem.setAttribute('y', `${256 + (textHeight / 2) - (textHeight * 0.197530864)}px`);
+    }
+
+    switch (activePopupField) {
+        case 'font size':
+            resultLogo.querySelectorAll('.result-logo-text').forEach(elem => {
+                elem.style.fontSize = `${e.currentTarget.querySelector('input').value >= 8 && e.currentTarget.querySelector('input').value <= 512 ? e.currentTarget.querySelector('input').value : 8}px`;
+
+                if (elem.classList.contains('result-logo-text-top')) {
+                    alignTextX(elem);
+                } else if (elem.classList.contains('result-logo-text-right')) {
+                    alignTextY(elem);
+                } else if (elem.classList.contains('result-logo-text-bottom')) {
+                    alignTextX(elem);
+                } else if (elem.classList.contains('result-logo-text-left')) {
+                    alignTextY(elem);
+                } else {
+                    alignTextX(elem);
+                    alignTextY(elem);
+                }
+
+            })
+
+        break;
+        case 'text':
+            resultLogo.querySelector('.result-logo-text').textContent = e.currentTarget.querySelector('input').value;
+            alignTextX(resultLogo.querySelector('.result-logo-text'));
+            alignTextY(resultLogo.querySelector('.result-logo-text'));
+        break;
+        case 'text top': 
+            resultLogo.querySelector('.result-logo-text-top').textContent = e.currentTarget.querySelector('input').value;
+            alignTextX(resultLogo.querySelector('.result-logo-text-top'));
+        break;
+        case 'text right': 
+            resultLogo.querySelector('.result-logo-text-right').textContent = e.currentTarget.querySelector('input').value;
+            alignTextY(resultLogo.querySelector('.result-logo-text-right'));
+
+            const textRWidth = resultLogo.querySelector('.result-logo-text-right').getComputedTextLength();
+            resultLogo.querySelector('.result-logo-text-right').setAttribute('x', `${373 - textRWidth / 2 + 17}px`);
+        break;
+        case 'text bottom': 
+            resultLogo.querySelector('.result-logo-text-bottom').textContent = e.currentTarget.querySelector('input').value;
+            alignTextX(resultLogo.querySelector('.result-logo-text-bottom'));
+        break;
+        case 'text left': 
+            resultLogo.querySelector('.result-logo-text-left').textContent = e.currentTarget.querySelector('input').value;
+            alignTextY(resultLogo.querySelector('.result-logo-text-left'));
+
+            const textLWidth = resultLogo.querySelector('.result-logo-text-left').getComputedTextLength();
+            resultLogo.querySelector('.result-logo-text-left').setAttribute('x', `${105 - textLWidth / 2 + 17}px`);
+        break;
+    } 
+
 }
 
 
@@ -49,9 +106,9 @@ const generatePersonalizationPopupFields = (activeLogosDataItemPopup) => {
                 ${activeLogosDataItemPopup[key].name}
                 <input
                     ${
-                        activeLogosDataItemPopup[key].contentType === 'text' ?
-                        'type="text" placeholder="MLG"' : 
-                        'type="number" min="1" placeholder="16"' 
+                        activeLogosDataItemPopup[key].contentType === 'text' 
+                        ? `type="text" placeholder="${activeLogosDataItemPopup[key].content}"` 
+                        : `type="number" min="8" max="512" placeholder="${activeLogosDataItemPopup[key].content}"`
                     }
                     value="${activeLogosDataItemPopup[key].content}"
                 >
@@ -68,9 +125,9 @@ const generatePersonalizationPopupFields = (activeLogosDataItemPopup) => {
 }
 
 
-const generatePersonalizationText = (personalizationText) => {
+const generatePersonalizationText = (personalizationClass, personalizationText, posX, posY) => {
     const template = `
-        <text class="result-logo-text" x="50%" y="50%">${personalizationText}</text>
+        <text class="${personalizationClass}" x="${posX}px" y="${posY}px" style="font-size: 70px;">${personalizationText}</text>
     `;
     return template;
 }
@@ -79,26 +136,36 @@ const generatePersonalizationText = (personalizationText) => {
 const changePersonalizationType = (personalizationType, activeLogosDataItem) => {
     personalizationPopupFields.appendChild(generatePersonalizationPopupFields(activeLogosDataItem.personalize[personalizationType].popupFields));
 
+    if (resultLogo.querySelectorAll('text')) {
+        resultLogo.querySelectorAll('text').forEach(elem => {
+            elem.remove();
+        });
+    }
+
     switch (personalizationType) {
         case 'singleLine':
-            activePopupField = 'text';
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text', activeLogosDataItem.personalize[personalizationType].popupFields['text'].content, 165, 280);
+            personalizationPopup.classList.add('personalize-popup-active');
         break;
         case 'xLetters':
-            activePopupField = 'textTop';
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-top', activeLogosDataItem.personalize[personalizationType].popupFields['textTop'].content, 239, 142);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-right', activeLogosDataItem.personalize[personalizationType].popupFields['textRight'].content, 373, 280);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-bottom', activeLogosDataItem.personalize[personalizationType].popupFields['textBottom'].content, 239, 407);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text result-logo-text-left', activeLogosDataItem.personalize[personalizationType].popupFields['textLeft'].content, 105, 280);
+            personalizationPopup.classList.add('personalize-popup-active');
+
+        break;
+        default:
+            personalizationPopup.classList.remove('personalize-popup-active');
         break;
     }
 
-    if (personalizationType !== 'none') {
-        if (!resultLogo.querySelector('.result-logo-text')) {
-            resultLogo.innerHTML += generatePersonalizationText(activeLogosDataItem.personalize[personalizationType].popupFields[activePopupField].content);
-        }
-        personalizationPopup.classList.add('personalize-popup-active');
-    } else {
-        if (resultLogo.querySelector('.result-logo-text')) resultLogo.querySelector('.result-logo-text').remove();
-        personalizationPopup.classList.remove('personalize-popup-active');
-    }
 }
 
+personalizationPopup.querySelector('.personalize-popup-clear-btn').onclick = () => {
+    personalizationType = targetPersonalizeBtn.dataset.personalize;
+    changePersonalizationType(personalizationType, activeLogosDataItem);
+}
 
 const onPersonalizationListClick = (e) => {
     if (e.target.closest('.personalize-btn')) {

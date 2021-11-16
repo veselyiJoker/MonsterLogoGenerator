@@ -26,12 +26,12 @@ export const logosData = {
                 popupFields: {
                     fontSize: {
                         name: 'font size',
-                        content: 16,
+                        content: 70,
                         contentType: 'number',
                     },
                     text: {
                         name: 'text',
-                        content: 'MLG',
+                        content: 'M.L.G.',
                         contentType: 'text',
                     },
                 },
@@ -53,12 +53,12 @@ export const logosData = {
                 popupFields: {
                     fontSize: {
                         name: 'font size',
-                        content: 16,
+                        content: 70,
                         contentType: 'number',
                     },
                     text: {
                         name: 'text',
-                        content: 'MLG',
+                        content: 'M.L.G.',
                         contentType: 'text',
                     },
                 },
@@ -80,12 +80,12 @@ export const logosData = {
                 popupFields: {
                     fontSize: {
                         name: 'font size',
-                        content: 16,
+                        content: 70,
                         contentType: 'number',
                     },
                     text: {
                         name: 'text',
-                        content: 'MLG',
+                        content: 'M.L.G.',
                         contentType: 'text',
                     },
                 },
@@ -107,12 +107,12 @@ export const logosData = {
                 popupFields: {
                     fontSize: {
                         name: 'font size',
-                        content: 16,
+                        content: 70,
                         contentType: 'number',
                     },
                     text: {
                         name: 'text',
-                        content: 'MLG',
+                        content: 'M.L.G.',
                         contentType: 'text',
                     },
                 },
@@ -134,7 +134,7 @@ export const logosData = {
                 popupFields: {
                     fontSize: {
                         name: 'font size',
-                        content: 16,
+                        content: 70,
                         contentType: 'number',
                     },
                     textTop: {
