@@ -5,7 +5,8 @@ import { crossSVG } from './shapes/cross.js';
 import { rhombusSVG } from './shapes/rhombus.js';
 import { shieldSVG } from  './shapes/shield.js';
 import { wreathSVG } from './shapes/wreath.js';
-import { mustacheSVG } from './swag/mustache.js';
+import { getCoffeeCap } from './swag/coffeeCap.js';
+import { getMustache } from './swag/mustache.js';
 
 export const resultLogo = document.querySelector('.result-logo');
 export const personalizationPopup = document.querySelector('.personalize-popup');
@@ -39,8 +40,12 @@ export const logosData = {
             },
         },
         swag: {
+            none: 'none',
             mustache: {
-                shape: mustacheSVG,
+                shape: getMustache('circle'),
+            },
+            coffeeCap: {
+                shape: getCoffeeCap('circle'),
             },
         },
     },
@@ -68,8 +73,12 @@ export const logosData = {
             },
         },
         swag: {
+            none: 'none',
             mustache: {
-                shape: mustacheSVG,
+                shape: getMustache('shield'),
+            },
+            coffeeCap: {
+                shape: getCoffeeCap('shield'),
             },
         },
     },
@@ -97,8 +106,12 @@ export const logosData = {
             },
         },
         swag: {
+            none: 'none',
             mustache: {
-                shape: mustacheSVG,
+                shape: getMustache('rhombus'),
+            },
+            coffeeCap: {
+                shape: getCoffeeCap('rhombus'),
             },
         },
     },
@@ -126,8 +139,12 @@ export const logosData = {
             },
         },
         swag: {
+            none: 'none',
             mustache: {
-                shape: mustacheSVG,
+                shape: getMustache('wreath'),
+            },
+            coffeeCap: {
+                shape: getCoffeeCap('wreath'),
             },
         },
     },
@@ -170,8 +187,12 @@ export const logosData = {
             },
         },
         swag: {
+            none: 'none',
             mustache: {
-                shape: mustacheSVG,
+                shape: getMustache('cross'),
+            },
+            coffeeCap: {
+                shape: getCoffeeCap('cross'),
             },
         },
     },

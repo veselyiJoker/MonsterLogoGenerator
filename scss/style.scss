@@ -134,6 +134,8 @@ header {
     transition: 0.3s;
     outline: none;
     cursor: pointer;
+    font-size: 13px;
+    color: #fff;
     svg {
         width: 100%;
         height: 100%;
@@ -148,11 +150,6 @@ header {
 
 .stages-btn-active {
     background: #000;
-}
-
-.personalize-btn {
-    font-size: 13px;
-    color: #fff;
 }
 
 .next-btn {

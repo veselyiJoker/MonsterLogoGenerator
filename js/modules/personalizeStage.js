@@ -130,7 +130,7 @@ const generatePersonalizationPopupFields = (activeLogosDataItemPopup) => {
 
 const generatePersonalizationText = (personalizationClass, personalizationText, posX, posY) => {
     const template = `
-        <text class="${personalizationClass}" x="${posX}px" y="${posY}px" style="font-size: 70px;">${personalizationText}</text>
+        <text class="${personalizationClass}" x="${posX}px" y="${posY}px" style="font-size: 70px;font-family:'Quicksand', sans-serif;">${personalizationText}</text>
     `;
     return template;
 }
