@@ -67,6 +67,12 @@ const changeSwag = (shapeName) => {
         case 'coffeeCap':
             resultLogo.innerHTML += activeLogosDataItem.swag.coffeeCap.shape;
         break;
+        case 'anchor':
+            resultLogo.innerHTML += activeLogosDataItem.swag.anchor.shape;
+        break;
+        case 'innerCircle':
+            resultLogo.innerHTML += activeLogosDataItem.swag.innerCircle.shape;
+        break;
         default:
             resultLogo.querySelectorAll('.swag').forEach(elem => {
                 elem.remove();

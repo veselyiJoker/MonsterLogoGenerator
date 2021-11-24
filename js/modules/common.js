@@ -5,6 +5,8 @@ import { crossSVG } from './shapes/cross.js';
 import { rhombusSVG } from './shapes/rhombus.js';
 import { shieldSVG } from  './shapes/shield.js';
 import { wreathSVG } from './shapes/wreath.js';
+import { getAnchor } from './swag/anchor.js';
+import { getInnerCircle } from './swag/innerCircle.js';
 import { getCoffeeCap } from './swag/coffeeCap.js';
 import { getMustache } from './swag/mustache.js';
 
@@ -47,6 +49,12 @@ export const logosData = {
             coffeeCap: {
                 shape: getCoffeeCap('circle'),
             },
+            anchor: {
+                shape: getAnchor('circle'),
+            },
+            innerCircle: {
+                shape: getInnerCircle('circle'),
+            },
         },
     },
     shield: {
@@ -79,6 +87,9 @@ export const logosData = {
             },
             coffeeCap: {
                 shape: getCoffeeCap('shield'),
+            },
+            anchor: {
+                shape: getAnchor('shield'),
             },
         },
     },
@@ -113,6 +124,9 @@ export const logosData = {
             coffeeCap: {
                 shape: getCoffeeCap('rhombus'),
             },
+            anchor: {
+                shape: getAnchor('rhombus'),
+            },
         },
     },
     wreath: {
@@ -145,6 +159,12 @@ export const logosData = {
             },
             coffeeCap: {
                 shape: getCoffeeCap('wreath'),
+            },
+            anchor: {
+                shape: getAnchor('wreath'),
+            },
+            innerCircle: {
+                shape: getInnerCircle('wreath'),
             },
         },
     },
@@ -193,6 +213,9 @@ export const logosData = {
             },
             coffeeCap: {
                 shape: getCoffeeCap('cross'),
+            },
+            anchor: {
+                shape: getAnchor('cross'),
             },
         },
     },
