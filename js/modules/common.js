@@ -9,6 +9,7 @@ import { getAnchor } from './swag/anchor.js';
 import { getInnerCircle } from './swag/innerCircle.js';
 import { getCoffeeCap } from './swag/coffeeCap.js';
 import { getMustache } from './swag/mustache.js';
+import { getDoubleLine } from './swag/doubleLine.js';
 
 export const resultLogo = document.querySelector('.result-logo');
 export const personalizationPopup = document.querySelector('.personalize-popup');
@@ -55,6 +56,9 @@ export const logosData = {
             innerCircle: {
                 shape: getInnerCircle('circle'),
             },
+            doubleLine: {
+                shape: getDoubleLine('circle'),
+            },
         },
     },
     shield: {
@@ -91,6 +95,9 @@ export const logosData = {
             anchor: {
                 shape: getAnchor('shield'),
             },
+            doubleLine: {
+                shape: getDoubleLine('shield'),
+            },
         },
     },
     rhombus: {
@@ -114,6 +121,7 @@ export const logosData = {
                         contentType: 'text',
                     },
                 },
+                
             },
         },
         swag: {
@@ -126,6 +134,9 @@ export const logosData = {
             },
             anchor: {
                 shape: getAnchor('rhombus'),
+            },
+            doubleLine: {
+                shape: getDoubleLine('rhombus'),
             },
         },
     },
@@ -165,6 +176,9 @@ export const logosData = {
             },
             innerCircle: {
                 shape: getInnerCircle('wreath'),
+            },
+            doubleLine: {
+                shape: getDoubleLine('wreath'),
             },
         },
     },
@@ -216,6 +230,9 @@ export const logosData = {
             },
             anchor: {
                 shape: getAnchor('cross'),
+            },
+            doubleLine: {
+                shape: getDoubleLine('cross'),
             },
         },
     },

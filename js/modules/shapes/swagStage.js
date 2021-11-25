@@ -60,24 +60,12 @@ const onSwagListClick = (e) => {
 
 
 const changeSwag = (shapeName) => {
-    switch (shapeName) {
-        case 'mustache':
-            resultLogo.innerHTML += activeLogosDataItem.swag.mustache.shape;
-        break;
-        case 'coffeeCap':
-            resultLogo.innerHTML += activeLogosDataItem.swag.coffeeCap.shape;
-        break;
-        case 'anchor':
-            resultLogo.innerHTML += activeLogosDataItem.swag.anchor.shape;
-        break;
-        case 'innerCircle':
-            resultLogo.innerHTML += activeLogosDataItem.swag.innerCircle.shape;
-        break;
-        default:
-            resultLogo.querySelectorAll('.swag').forEach(elem => {
-                elem.remove();
-            });
-        break;
+    if (!(shapeName === 'none')) {
+        resultLogo.innerHTML += activeLogosDataItem.swag[shapeName].shape;
+    } else {
+        resultLogo.querySelectorAll('.swag').forEach(elem => {
+            elem.remove();
+        });
     }
 }
 

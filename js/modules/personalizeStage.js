@@ -130,7 +130,7 @@ const generatePersonalizationPopupFields = (activeLogosDataItemPopup) => {
 
 const generatePersonalizationText = (personalizationClass, personalizationText, posX, posY) => {
     const template = `
-        <text class="${personalizationClass}" x="${posX}px" y="${posY}px" style="font-size: 70px;font-family:'Quicksand', sans-serif;">${personalizationText}</text>
+        <text class="${personalizationClass}" x="${posX}px" y="${posY}px" style="font-size: 70px;font-family:'Quicksand', sans-serif; font-weight:400;">${personalizationText}</text>
     `;
     return template;
 }
@@ -147,7 +147,7 @@ const changePersonalizationType = (personalizationType, activeLogosDataItem) => 
 
     switch (personalizationType) {
         case 'singleLine':
-            resultLogo.innerHTML += generatePersonalizationText('result-logo-text', activeLogosDataItem.personalize[personalizationType].popupFields['text'].content, 148, 280);
+            resultLogo.innerHTML += generatePersonalizationText('result-logo-text', activeLogosDataItem.personalize[personalizationType].popupFields['text'].content, 150, 280);
             personalizationPopup.classList.add('personalize-popup-active');
         break;
         case 'xLetters':
